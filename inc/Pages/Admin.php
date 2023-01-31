@@ -108,7 +108,7 @@ class Admin extends BaseController
 
          array(
             'option_group' => 'petizan_settings',
-            'option_name' => 'texonomy_manager',
+            'option_name' => 'taxonomy_manager',
             'callback' => array($this->callbacks_mngr, 'checkboxSanitize')
          ),
 
@@ -146,7 +146,13 @@ class Admin extends BaseController
             'option_group' => 'petizan_settings',
             'option_name' => 'membership_manager',
             'callback' => array($this->callbacks_mngr, 'checkboxSanitize')
-         )
+         ),
+
+         array(
+            'option_group' => 'petizan_settings',
+            'option_name' => 'chat_manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxSanitize')
+         ),
 
       );
 

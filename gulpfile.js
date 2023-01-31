@@ -1,6 +1,6 @@
 'use strict';
 
-const {src, dest, watch, series} = require('gulp');
+const {src, dest, watch, series, parallel} = require('gulp');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps')
 const uglify = require('gulp-uglify');
@@ -15,8 +15,6 @@ const styleWATCH  = "./assets/src/scss/**/*.scss";
 
 const sass = require('gulp-sass')(require('sass'));
 const autoPrefixer = require('gulp-autoprefixer');
-const postcss = require('gulp-postcss');
-
 
 // JS related
 const jsSRC =  "petizan.js";
@@ -59,11 +57,11 @@ function buildStyle(){
             overrideBrowserslist: ['last 3 versions'], 
             cascade: false 
         } ))
-        .pipe(postcss(processors))
         .pipe( rename( { suffix: '.min' } ))
         .pipe( sourcemaps.write( './' ) )
         .pipe( dest( styleDIST ) )
         .pipe( browserSync.stream() );
+
 }
 
 
@@ -97,14 +95,12 @@ function buildScript(done)
 
 function watchTask()
 {
-
     watch('**/*.php', reload);
-    watch(styleWATCH, buildStyle, reload);
-    watch(jsWATCH, buildScript, reload);
+    watch([styleWATCH, jsWATCH], parallel(buildStyle,buildScript ) , reload);
 }
 
 
 
-exports.default = series(buildStyle, buildScript, browserSyncTask, watchTask)
+exports.default = parallel(buildStyle, buildScript, browserSyncTask, watchTask)
 
 
