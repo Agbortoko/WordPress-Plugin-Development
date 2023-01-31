@@ -1,0 +1,63 @@
+@use '../helpers/color' as v;
+
+.nav-tabs {
+
+    float: left;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    border-bottom: 1px solid transparent;
+
+    li{
+
+        float: left;
+        margin-bottom: -1px;
+
+        &.active{
+
+            a, 
+            a:hover, 
+            a:focus {
+                color: #555;
+                cursor: default;
+                background-color: v.$whiteColor;
+                border: 1px solid #ddd;
+                border-bottom-color: transparent;
+                text-decoration: none;
+            }
+        }
+    }
+
+    a{
+        margin-right: 2px;
+        line-height: 1.5;
+        padding: 10px;
+        border: 1px solid transparent;
+        border-radius: 4px 4px 0 0;
+        float: left;
+        text-decoration: none;   
+
+        &:hover{
+            border-color: #eee #eee #ddd;
+        }
+    }
+}
+
+
+.tab-content {
+
+    .tab-pane {
+
+        float: left;
+        width: 100%;
+        margin: auto;
+        display: none;
+
+        &.active{
+            display: block;
+            background-color:  v.$whiteColor;
+            box-shadow: 0 5px 4px -1px v.$transparentBlack;
+            padding: 0 0.9rem;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+@use '../helpers/mixin' as m;
+@use '../helpers/color' as v;
+
+div.ui-toggle{
+    @include m.ui-toggle(20px, v.$on, v.$off);
+}
