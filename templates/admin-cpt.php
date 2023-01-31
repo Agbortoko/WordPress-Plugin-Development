@@ -1,0 +1,1 @@
+<h1>This is the Custom post type page</h1>

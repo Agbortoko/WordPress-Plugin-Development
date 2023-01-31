@@ -1,0 +1,1 @@
+<h1>This is the Taxonomy Settings</h1>

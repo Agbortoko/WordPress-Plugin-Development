@@ -1,0 +1,19 @@
+{
+    "name": "rabbitmaid/petizan",
+    "description": "The best way to manage pets and animal shelters on WordPress. Set and reuse pet breeds and other interesting taxonomies",
+    "type": "project",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc"
+        }
+    },
+    "authors": [
+        {
+            "name": "RabbitMaid",
+            "email": "therabbitmaid@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
