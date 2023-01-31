@@ -4,6 +4,8 @@ const {src, dest, watch, series} = require('gulp');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps')
 const uglify = require('gulp-uglify');
+const browserSync = require( 'browser-sync' ).create();
+const reload = browserSync.reload;
 
 // SCSS related
 const styleSRC =  "./assets/src/scss/petizan.scss";
@@ -13,6 +15,7 @@ const styleWATCH  = "./assets/src/scss/**/*.scss";
 
 const sass = require('gulp-sass')(require('sass'));
 const autoPrefixer = require('gulp-autoprefixer');
+const postcss = require('gulp-postcss');
 
 
 // JS related
@@ -28,6 +31,21 @@ const source = require( 'vinyl-source-stream' );
 const buffer = require( 'vinyl-buffer' );
 
 
+function browserSyncTask(){
+
+    return browserSync.init({
+        open: false,
+        injectChanges: true,
+        proxy: "http://localhost/workspace",
+        // https: {
+        //     key: '',
+        //     cert: ''
+        // }
+    });
+}
+
+
+
 function buildStyle(){
  
     return src(styleSRC)
@@ -41,14 +59,18 @@ function buildStyle(){
             overrideBrowserslist: ['last 3 versions'], 
             cascade: false 
         } ))
+        .pipe(postcss(processors))
         .pipe( rename( { suffix: '.min' } ))
         .pipe( sourcemaps.write( './' ) )
-        .pipe( dest( styleDIST ) );
-
+        .pipe( dest( styleDIST ) )
+        .pipe( browserSync.stream() );
 }
 
 
-function buildScript(cb)
+
+
+
+function buildScript(done)
 {
     
     jsFILES.map(function(entry){
@@ -56,7 +78,7 @@ function buildScript(cb)
         return browserify( {
             entries: [jsFOLDER + entry]
         })
-        .transform( babelify, { presets: ['env'] })
+        .transform( babelify, { presets: ['@babel/preset-env'] })
         .bundle()
         .pipe( source( entry ) )
         .pipe( rename( { extname: '.min.js'} ) )
@@ -65,20 +87,24 @@ function buildScript(cb)
         .pipe( uglify() )
         .pipe ( sourcemaps.write( './' ) )
         .pipe ( dest(jsDIST) )
+        .pipe( browserSync.stream() );
     });
     
 
-    cb();
+    done();
 }
 
 
 function watchTask()
 {
-    watch(styleWATCH, buildStyle);
-    watch(jsWATCH, buildScript);
+
+    watch('**/*.php', reload);
+    watch(styleWATCH, buildStyle, reload);
+    watch(jsWATCH, buildScript, reload);
 }
 
 
-exports.default = series(buildStyle, buildScript, watchTask)
+
+exports.default = series(buildStyle, buildScript, browserSyncTask, watchTask)
 
 

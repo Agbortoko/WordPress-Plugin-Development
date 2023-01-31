@@ -298,7 +298,7 @@ class Admin extends BaseController
                'class' => 'ui-toggle'
             )
 
-          ),
+            ),
 
          
 

@@ -62,8 +62,8 @@ h1 {
 
         &.active{
             display: block;
-            background-color:  #fff;
-            box-shadow: 0 5px 4px -1px rgba(0,0,0,0.15);
+            background-color:  v.$whiteColor;
+            box-shadow: 0 5px 4px -1px v.$transparentBlack;
             padding: 0 0.9rem;
         }
     }
