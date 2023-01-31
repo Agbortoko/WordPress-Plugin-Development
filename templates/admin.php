@@ -27,7 +27,7 @@
             <form method="post" action="options.php">
         
                 <?php
-                    settings_fields( 'petizan_options_group' );
+                    settings_fields( 'petizan_settings' );
                     do_settings_sections( 'petizan' );
                     submit_button();
                 ?>

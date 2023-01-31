@@ -183,10 +183,122 @@ class Admin extends BaseController
             'section' => 'petizan_admin_index',
             'args' => array(
                'label_for' => 'cpt_manager',
-               'class' => 'example-class'
+               'class' => 'ui-toggle'
             )
 
-            ),
+          ),
+
+
+          array(
+            'id' => 'taxonomy_manager',
+            'title' => 'Activate Taxonomy Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'taxonomy_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'media_widget',
+            'title' => 'Activate Media Widget',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'media_widget',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'gallery_manager',
+            'title' => 'Activate Gallery Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'gallery_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'testimonial_manager',
+            'title' => 'Activate Testimonial Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'testimonial_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'templates_manager',
+            'title' => 'Activate Templates Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'templates_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'login_manager',
+            'title' => 'Activate Login Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'login_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'membership_manager',
+            'title' => 'Activate Membership Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'membership_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
+
+
+          array(
+            'id' => 'chat_manager',
+            'title' => 'Activate Chat Manager',
+            'callback' => array($this->callbacks_mngr, 'checkboxField'),
+            'page' => 'petizan', //slug of first page
+            'section' => 'petizan_admin_index',
+            'args' => array(
+               'label_for' => 'chat_manager',
+               'class' => 'ui-toggle'
+            )
+
+          ),
 
          
 
