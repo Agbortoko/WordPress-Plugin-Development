@@ -1,5 +1,5 @@
 # Plugin features
-Full list of sections and features i will build during the series of Tutorials
+Full list of sections and features i will build during this practice session
 
 * Modular Administration Area
 * CPT Manager
