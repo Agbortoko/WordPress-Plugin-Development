@@ -23,7 +23,7 @@ class SettingsApi
      */
     public function register()
     {
-        if (!empty($this->admin_pages)) {
+        if (!empty($this->admin_pages) || !empty($this->admin_subpages)) {
 
             add_action('admin_menu', array($this, 'addAdminMenu'));
         }
@@ -50,8 +50,7 @@ class SettingsApi
 
 
     /**
-     * Add SubPages
-     *
+     * Add the very first subpage
      * @param string|null $title
      * @return this Subpages
      */

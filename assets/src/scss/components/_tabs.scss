@@ -56,7 +56,8 @@
         &.active{
             display: block;
             background-color:  v.$whiteColor;
-            box-shadow: 0 5px 4px -1px v.$transparentBlack;
+            // box-shadow: 0 5px 4px -1px v.$transparentBlack;
+            border: 1px solid v.$blackColor;
             padding: 0 0.9rem;
         }
     }

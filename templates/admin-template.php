@@ -1,0 +1,1 @@
+<h1>This is the Template Settings</h1>

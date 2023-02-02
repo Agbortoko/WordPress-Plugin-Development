@@ -32,6 +32,36 @@ class AdminCallbacks extends BaseController
         return  require_once $this->plugin_path . '/templates/admin-widget.php';
     }
 
+    public function adminGallery()
+    {
+        return  require_once $this->plugin_path . '/templates/admin-gallery.php';
+    }
+
+    public function adminTestimonial()
+    {
+        return  require_once $this->plugin_path . '/templates/admin-testimonial.php';
+    }
+
+    public function adminTemplate()
+    {
+        return require_once $this->plugin_path . '/templates/admin-template.php';
+    }
+
+    public function adminLoginManager()
+    {
+        return require_once $this->plugin_path . '/templates/admin-login.php';
+    }
+
+    public function adminMembership()
+    {
+        return require_once $this->plugin_path . '/templates/admin-membership.php';
+    }
+
+    public function adminChatManager()
+    {
+        return require_once $this->plugin_path . '/templates/admin-chat.php';
+    }
+
     // public function petizanAdminSection()
     // {
     //     echo 'Check this beautiful section!';
