@@ -105,9 +105,17 @@ class Admin extends BaseController
 
          array_push($args,  array(
             'option_group' => 'petizan_settings',
-            'option_name' => $managerID,
+            'option_name' => 'petizan',
             'callback' => array($this->callbacks_mngr, 'checkboxSanitize')
          ));
+
+
+         // array_push($args,  array(
+         //    'option_group' => 'petizan_settings',
+         //    'option_name' => $managerID,
+         //    'callback' => array($this->callbacks_mngr, 'checkboxSanitize')
+         // ));
+         
       }
 
       // $args = array(
@@ -203,6 +211,7 @@ class Admin extends BaseController
             'page' => 'petizan', //slug of first page
             'section' => 'petizan_admin_index',
             'args' => array(
+               'option_name'=>'petizan',
                'label_for' => $managerID,
                'class' => 'ui-toggle'
             )

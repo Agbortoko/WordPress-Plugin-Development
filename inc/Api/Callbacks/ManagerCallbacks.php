@@ -11,11 +11,18 @@ use Inc\Base\BaseController;
 class ManagerCallbacks extends BaseController
 {
 
-    public function checkboxSanitize( $input )
+    public function checkboxSanitize($input)
     {
-        // return filter_var($input, FILTER_SANITIZE_NUMBER_INT);
-
-        return (isset($input) ? true : false);
+        
+        $output = array();
+        
+        foreach($this->managers as $ID => $title)
+        {
+            $output[$ID] = (($input[$ID] == true) ? true : false);
+        }
+        
+        return $output;
+        
     }
 
     public function adminSectionManager(){
@@ -27,9 +34,19 @@ class ManagerCallbacks extends BaseController
         $name = $args['label_for'];
         $classes = $args['class'];
 
-        $checkbox = get_option( $args['label_for'] );
+        $option_name = $args['option_name'];
+        $checkbox = get_option( $option_name , true);
 
-        echo "<div class='$classes'><input type='checkbox' name='$name'  id='$name' value='1' ".( $checkbox ? 'checked' : '' )." ><label for='$name'><div></div></label></div>";
+        // If options is set and not empty return true
+        $checked = isset($checkbox[$name]) ? (!empty($checkbox[$name]) ? true : false) : false;
+
+        echo '<div class="'.$classes.'">   
+                <input type="checkbox" id="'.$name.'"  name="'.$option_name. '['. $name .']'.'" value="1" class="" '.($checked ? 'checked' : '') .'>
+                <label for="'.$name.'">
+                    <div></div>
+                </label>
+        </div>';
+        
     }
 
 }
