@@ -35,10 +35,6 @@ function browserSyncTask(){
         open: false,
         injectChanges: true,
         proxy: "http://localhost/workspace",
-        // https: {
-        //     key: '',
-        //     cert: ''
-        // }
     });
 }
 
@@ -95,7 +91,7 @@ function buildScript(done)
 
 function watchTask()
 {
-    watch('**/*.php', reload);
+    watch('**/*.php').on('change', reload);
     watch([styleWATCH, jsWATCH], parallel(buildStyle,buildScript ) , reload);
 }
 
