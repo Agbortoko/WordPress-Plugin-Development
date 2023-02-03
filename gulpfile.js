@@ -92,7 +92,7 @@ function buildScript(done)
 function watchTask()
 {
     watch('**/*.php').on('change', reload);
-    watch([styleWATCH, jsWATCH], parallel(buildStyle,buildScript ) , reload);
+    watch([styleWATCH, jsWATCH], series(buildStyle,buildScript ) , reload);
 }
 
 

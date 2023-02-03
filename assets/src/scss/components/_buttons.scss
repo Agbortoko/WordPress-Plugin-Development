@@ -1,0 +1,36 @@
+@use '../helpers/color' as c;
+
+.btn {
+    background-color: c.$defaultBtn;
+    border: none;
+    padding: 0.25rem 0.6rem;
+    color: c.$black;
+    display: inline-block;
+
+    &:hover{
+        color: c.$black;
+    }
+
+    &.btn-edit{
+      background-color: c.$on;  
+      color: c.$whiteColor;
+      transition:  background-color 250ms ease-in-out;
+
+      &:hover{
+        cursor: pointer;
+        background-color: lighten(c.$on, 10);
+      }
+    }
+
+
+    &.btn-delete{
+        background-color: c.$danger;  
+        color: c.$whiteColor;
+        transition:  background-color 250ms ease-in-out;
+  
+        &:hover{
+          cursor: pointer;
+          background-color: lighten(c.$danger, 10);
+        }
+      }
+}

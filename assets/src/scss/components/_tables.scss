@@ -1,0 +1,25 @@
+@use '../helpers/color' as c;
+
+.table{
+    border-collapse: collapse;
+    width: 100%;
+
+    th{
+        font-weight: 900!important;
+        padding: 0.8rem;
+    }
+
+    td{
+        padding: 0.5rem;
+        text-align: center;
+    }
+
+    td, th{
+        border: 1px solid c.$defaultBtn;
+        vertical-align: middle;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}

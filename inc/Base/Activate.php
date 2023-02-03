@@ -11,15 +11,22 @@
     {
         flush_rewrite_rules();
 
+        $default = array();
+        
         // If default option does not exist update with a default array
-        if( get_option('petizan') ){
-            return;
+        if( !get_option('petizan') ){
+           
+            update_option( 'petizan', $default );
+          
         }
 
 
-        $default = array();
+        if( !get_option('petizan_cpt') ){
+           
+            update_option( 'petizan_cpt', $default );
+          
+        }
 
-        update_option( 'petizan', $default );
 
     }
  }
