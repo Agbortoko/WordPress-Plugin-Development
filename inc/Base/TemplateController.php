@@ -22,11 +22,7 @@
     public function register()
     {
 
-        $option = get_option('petizan');
-
-        $activated = isset($option['templates_manager']) ? $option['templates_manager'] : false;
-
-        if( !$activated ) return; // if not activated stop and don't activate the templates_manager  subpage
+        if( !$this->activated('templates_manager') ) return; // if not activated stop and don't activate the templates_manager  subpage
         
 
         $this->settings = new SettingsApi();

@@ -22,11 +22,8 @@
     public function register()
     {
 
-        $option = get_option('petizan');
 
-        $activated = isset($option['login_manager']) ? $option['login_manager'] : false;
-
-        if( !$activated ) return; // if not activated stop and don't activate the login_manager  subpage
+      if( !$this->activated('login_manager') ) return; // if not activated stop and don't activate the login_manager  subpage
         
 
         $this->settings = new SettingsApi();
@@ -47,8 +44,8 @@
 
          array(
             'parent_slug' => 'petizan',
-            'page_title' =>  'Login Manager',
-            'menu_title' =>  'Login Manager',
+            'page_title' =>  'Ajax Login/Signup Manager',
+            'menu_title' =>  'Ajax Login/Signup Manager',
             'capability' =>  'manage_options',
             'menu_slug'  =>  'petizan_login_manager',
             'callback'   =>  array($this->callbacks, 'adminLoginManager'),

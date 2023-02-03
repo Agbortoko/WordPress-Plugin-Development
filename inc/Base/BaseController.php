@@ -51,4 +51,20 @@ class BaseController
             'chat_manager' => 'Activate Chat Manager'
         );
     }
+
+
+    /**
+     * Verify if manager is activated
+     *
+     * @param string $ID
+     * @return bool
+     */
+    public function activated (string $ID )
+    {
+        $option = get_option('petizan'); //option in database
+
+        $activated = isset($option[$ID]) ? $option[$ID] : false;
+
+        return $activated;
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
-namespace Inc\Pages;
 
+namespace Inc\Pages;
 /**
  * @package Petizan
  */

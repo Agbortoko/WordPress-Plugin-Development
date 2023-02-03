@@ -22,11 +22,7 @@
     public function register()
     {
 
-        $option = get_option('petizan');
-
-        $activated = isset($option['gallery_manager']) ? $option['gallery_manager'] : false;
-
-        if( !$activated ) return; // if not activated stop and don't activate the gallery_manager  subpage
+      if( !$this->activated('gallery_manager') ) return; // if not activated stop and don't activate the gallery_manager  subpage
         
 
         $this->settings = new SettingsApi();

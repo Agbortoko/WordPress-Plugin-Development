@@ -22,11 +22,7 @@
     public function register()
     {
 
-        $option = get_option('petizan');
-
-        $activated = isset($option['taxonomy_manager']) ? $option['taxonomy_manager'] : false;
-
-        if( !$activated ) return; // if not activated stop and don't activate the taxonomy_manager  subpage
+        if( !$this->activated('taxonomy_manager') ) return;// if not activated stop and don't activate the taxonomy_manager  subpage
         
 
         $this->settings = new SettingsApi();

@@ -22,11 +22,7 @@
     public function register()
     {
 
-        $option = get_option('petizan');
-
-        $activated = isset($option['membership_manager']) ? $option['membership_manager'] : false;
-
-        if( !$activated ) return; // if not activated stop and don't activate the membership_manager  subpage
+        if( !$this->activated('membership_manager') ) return; // if not activated stop and don't activate the membership_manager  subpage
         
 
         $this->settings = new SettingsApi();

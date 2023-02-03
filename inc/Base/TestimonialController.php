@@ -22,11 +22,7 @@
     public function register()
     {
 
-        $option = get_option('petizan');
-
-        $activated = isset($option['testimonial_manager']) ? $option['testimonial_manager'] : false;
-
-        if( !$activated ) return; // if not activated stop and don't activate the testimonial_manager  subpage
+        if( !$this->activated('testimonial_manager') ) return; // if not activated stop and don't activate the testimonial_manager  subpage
         
 
         $this->settings = new SettingsApi();

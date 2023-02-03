@@ -1,1 +1,1 @@
-<h1>This is the Login Manager Settings</h1>
+<h1>This is the Ajax Login/Signup Manager Settings</h1>
